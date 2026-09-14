@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+tensorflow==2.21.0
+numpy
+pydantic
+scikit-learn
+pandas
+matplotlib
+datasets

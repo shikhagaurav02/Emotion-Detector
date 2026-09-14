@@ -1,0 +1,555 @@
+/* ================================
+   Global
+================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    min-height: 100vh;
+
+    background:
+        radial-gradient(circle at top left, #e0e7ff, transparent 35%),
+        radial-gradient(circle at bottom right, #dbeafe, transparent 35%),
+        #f8fafc;
+
+    color: #172554;
+    padding: 45px 20px;
+}
+
+.container {
+    max-width: 850px;
+    margin: auto;
+}
+
+
+/* ================================
+   Header
+================================ */
+
+.header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.emoji {
+    font-size: 55px;
+    margin-bottom: 12px;
+}
+
+.header h1 {
+    font-size: 42px;
+    font-weight: 750;
+    letter-spacing: -1px;
+    margin-bottom: 12px;
+}
+
+.header p {
+    color: #64748b;
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+
+/* ================================
+   Cards
+================================ */
+
+.card {
+    background: rgba(255, 255, 255, 0.94);
+
+    border: 1px solid rgba(226, 232, 240, 0.9);
+
+    border-radius: 22px;
+
+    padding: 32px;
+
+    margin-bottom: 25px;
+
+    box-shadow:
+        0 15px 40px rgba(15, 23, 42, 0.08);
+
+    backdrop-filter: blur(10px);
+}
+
+
+/* ================================
+   Input
+================================ */
+
+.card label {
+    display: block;
+
+    font-size: 18px;
+    font-weight: 650;
+
+    margin-bottom: 13px;
+}
+
+textarea {
+    width: 100%;
+    min-height: 170px;
+
+    resize: vertical;
+
+    padding: 18px;
+
+    border: 2px solid #e2e8f0;
+
+    border-radius: 15px;
+
+    outline: none;
+
+    background: #f8fafc;
+
+    color: #0f172a;
+
+    font-size: 16px;
+
+    line-height: 1.6;
+
+    transition: all 0.25s ease;
+}
+
+textarea:hover {
+    border-color: #cbd5e1;
+}
+
+textarea:focus {
+    border-color: #6366f1;
+
+    background: white;
+
+    box-shadow:
+        0 0 0 4px rgba(99, 102, 241, 0.12);
+}
+
+
+/* ================================
+   Input Footer
+================================ */
+
+.input-footer {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-top: 16px;
+}
+
+#charCount {
+    color: #64748b;
+    font-size: 14px;
+}
+
+
+/* ================================
+   Predict Button
+================================ */
+
+button {
+    border: none;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6366f1,
+            #4f46e5
+        );
+
+    color: white;
+
+    padding: 14px 25px;
+
+    border-radius: 12px;
+
+    font-size: 16px;
+
+    font-weight: 650;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 20px rgba(79, 70, 229, 0.25);
+
+    transition: all 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 25px rgba(79, 70, 229, 0.35);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+button:disabled {
+    opacity: 0.6;
+
+    cursor: not-allowed;
+
+    transform: none;
+}
+
+
+/* ================================
+   Result Header
+================================ */
+
+.result-card h2 {
+    font-size: 26px;
+
+    margin-bottom: 25px;
+}
+
+
+/* ================================
+   Main Result
+================================ */
+
+.main-result {
+    display: flex;
+
+    align-items: center;
+
+    gap: 22px;
+
+    padding: 25px;
+
+    border-radius: 17px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f8fafc,
+            #eef2ff
+        );
+
+    border: 1px solid #e2e8f0;
+
+    margin-bottom: 28px;
+
+    transition: all 0.3s ease;
+}
+
+.result-emoji {
+    font-size: 65px;
+
+    min-width: 80px;
+
+    text-align: center;
+}
+
+.result-label {
+    color: #64748b;
+
+    font-size: 14px;
+
+    margin-bottom: 5px;
+}
+
+#emotion {
+    font-size: 34px;
+
+    font-weight: 750;
+
+    text-transform: capitalize;
+}
+
+
+/* ================================
+   Confidence
+================================ */
+
+.confidence-section {
+    margin-bottom: 32px;
+}
+
+.section-heading {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 10px;
+
+    font-size: 16px;
+}
+
+.section-heading strong {
+    font-size: 18px;
+}
+
+.progress-background {
+    height: 13px;
+
+    background: #e2e8f0;
+
+    border-radius: 50px;
+
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+
+    width: 0%;
+
+    border-radius: 50px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #6366f1,
+            #818cf8
+        );
+
+    transition:
+        width 0.8s ease;
+}
+
+
+/* ================================
+   Probability Section
+================================ */
+
+.probability-section h3 {
+    font-size: 20px;
+
+    margin-bottom: 22px;
+}
+
+.probability-row {
+    margin-bottom: 19px;
+
+    padding: 12px 14px;
+
+    border-radius: 12px;
+
+    transition: all 0.25s ease;
+}
+
+.probability-row:hover {
+    background: #f8fafc;
+}
+
+.probability-row.top-emotion {
+    background: #eef2ff;
+
+    border: 1px solid #c7d2fe;
+
+    transform: scale(1.01);
+}
+
+.probability-info {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 8px;
+
+    font-size: 15px;
+}
+
+.probability-info span {
+    font-weight: 500;
+}
+
+.probability-info strong {
+    font-weight: 650;
+}
+
+.probability-background {
+    height: 9px;
+
+    background: #e2e8f0;
+
+    border-radius: 50px;
+
+    overflow: hidden;
+}
+
+.probability-bar {
+    height: 100%;
+
+    width: 0%;
+
+    border-radius: 50px;
+
+    transition:
+        width 0.8s ease;
+}
+
+
+/* ================================
+   Emotion Colors
+================================ */
+
+.emotion-sadness {
+    background: #3b82f6;
+}
+
+.emotion-joy {
+    background: #eab308;
+}
+
+.emotion-love {
+    background: #ec4899;
+}
+
+.emotion-anger {
+    background: #ef4444;
+}
+
+.emotion-fear {
+    background: #8b5cf6;
+}
+
+.emotion-surprise {
+    background: #f97316;
+}
+
+
+/* ================================
+   Loading
+================================ */
+
+.loading {
+    text-align: center;
+
+    margin: 25px;
+
+    color: #64748b;
+}
+
+.spinner {
+    width: 38px;
+    height: 38px;
+
+    border: 4px solid #e2e8f0;
+
+    border-top-color: #6366f1;
+
+    border-radius: 50%;
+
+    animation: spin 0.8s linear infinite;
+
+    margin: 0 auto 12px;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* ================================
+   Error
+================================ */
+
+.error {
+    background: #fef2f2;
+
+    color: #b91c1c;
+
+    border: 1px solid #fecaca;
+
+    padding: 15px 18px;
+
+    border-radius: 12px;
+
+    margin-bottom: 20px;
+
+    text-align: center;
+}
+
+
+/* ================================
+   Utility
+================================ */
+
+.hidden {
+    display: none;
+}
+
+
+/* ================================
+   Footer
+================================ */
+
+footer {
+    text-align: center;
+
+    color: #94a3b8;
+
+    font-size: 13px;
+
+    margin-top: 30px;
+}
+
+
+/* ================================
+   Mobile
+================================ */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 25px 15px;
+    }
+
+    .header h1 {
+        font-size: 32px;
+    }
+
+    .card {
+        padding: 22px;
+    }
+
+    .input-footer {
+        flex-direction: column;
+
+        gap: 15px;
+
+        align-items: stretch;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    .main-result {
+        padding: 20px;
+    }
+
+    .result-emoji {
+        font-size: 50px;
+        min-width: 60px;
+    }
+
+    #emotion {
+        font-size: 27px;
+    }
+}
+
+.top-emotion {
+    transform: scale(1.01);
+    box-shadow: 0 4px 15px rgba(15, 23, 42, 0.06);
+}
+
+.top-emotion .probability-info strong {
+    font-weight: 750;
+}

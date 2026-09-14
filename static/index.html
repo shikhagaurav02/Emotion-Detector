@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Emotion Detector</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Header -->
+        <header class="header">
+            <div class="emoji">🧠</div>
+
+            <h1>Emotion Detector</h1>
+
+            <p>
+                Discover the emotion behind your text using
+                a BiGRU Deep Learning model.
+            </p>
+        </header>
+
+
+        <!-- Input Card -->
+        <section class="card">
+
+            <label for="textInput">
+                Enter your text
+            </label>
+
+            <textarea
+                id="textInput"
+                placeholder="Example: I feel so happy and excited today..."
+                maxlength="2000"
+            ></textarea>
+
+            <div class="input-footer">
+                <span id="charCount">0 / 2000</span>
+
+                <button id="predictBtn">
+                    🔍 Predict Emotion
+                </button>
+            </div>
+
+        </section>
+
+
+        <!-- Loading -->
+        <div id="loading" class="loading hidden">
+            <div class="spinner"></div>
+            <p>Analyzing your emotion...</p>
+        </div>
+
+
+        <!-- Result -->
+        <section id="resultCard" class="card result-card hidden">
+
+            <h2>Prediction Result</h2>
+
+            <div class="main-result">
+
+                <div id="emotionEmoji" class="result-emoji">
+                    😊
+                </div>
+
+                <div>
+                    <p class="result-label">
+                        Predicted Emotion
+                    </p>
+
+                    <h3 id="emotion">
+                        Joy
+                    </h3>
+                </div>
+
+            </div>
+
+
+            <!-- Confidence -->
+            <div class="confidence-section">
+
+                <div class="section-heading">
+                    <span>Confidence</span>
+
+                    <strong id="confidence">
+                        0%
+                    </strong>
+                </div>
+
+                <div class="progress-background">
+                    <div
+                        id="confidenceBar"
+                        class="progress-bar"
+                    ></div>
+                </div>
+
+            </div>
+
+
+            <!-- Probability -->
+            <div class="probability-section">
+
+                <h3>
+                    Emotion Probabilities
+                </h3>
+
+                <div id="probabilities"></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Error -->
+        <div id="error" class="error hidden"></div>
+
+
+        <!-- Footer -->
+        <footer>
+            <p>
+                Powered by FastAPI + TensorFlow + BiGRU
+            </p>
+        </footer>
+
+    </div>
+
+    <script src="/static/script.js"></script>
+
+</body>
+
+</html>

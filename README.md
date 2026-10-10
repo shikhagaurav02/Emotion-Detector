@@ -132,13 +132,6 @@ Actual predictions depend on the model's training data and performance.
 - Improve the user interface and deployment workflow.
 - Deploy the application for public access.
 
-## Author
-
-**Shikha Gaurav**
-
-- GitHub: https://github.com/YOUR_USERNAME
-- LinkedIn: https://linkedin.com/in/YOUR_USERNAME
-
 ## License
 
 This project is intended for educational and portfolio purposes. Add a license file if you intend to distribute or reuse the project under specific terms.

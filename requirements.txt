@@ -1,6 +1,6 @@
 fastapi
 uvicorn[standard]
-tensorflow==2.21.0
+tensorflow
 numpy
 pydantic
 scikit-learn
